@@ -8,9 +8,6 @@ import { ChevronRight, ChevronLeft } from "lucide-react";
 export default function Services() {
     return (
         <div id="services" className="flex flex-col bg-background text-foreground scroll-smooth">
-            <div className="py-20 text-center">
-                <h2 className="text-4xl md:text-6xl font-serif text-gold/90 mb-4">Pick Your Poison</h2>
-            </div>
             <ClassicGelX />
             <SignatureSet />
             <LuxuryCustom />

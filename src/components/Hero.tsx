@@ -27,7 +27,7 @@ export default function Hero() {
                 <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-gold/10 rounded-full blur-[100px] opacity-30" />
             </div>
 
-            <div className="z-10 text-center mb-0 md:mb-8 relative">
+            <div className="z-10 text-center mb-8 md:mb-8 relative mt-12 md:mt-0">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -52,9 +52,7 @@ export default function Hero() {
                 </motion.p>
             </div>
 
-            <div className="relative w-full max-w-2xl aspect-square flex items-center justify-center mt-[-40px] md:mt-0">
-
-
+            <div className="relative w-full max-w-2xl aspect-square flex items-center justify-center my-8 md:my-0">
                 {/* Draggable Nails - Glossy Dark Container */}
                 <motion.div
                     initial={{ scale: 0.95, opacity: 0 }}
@@ -68,7 +66,7 @@ export default function Hero() {
                 </motion.div>
             </div>
 
-            <div className="absolute bottom-12 z-20 flex flex-col items-center gap-4">
+            <div className="relative md:absolute md:bottom-12 z-20 flex flex-col items-center gap-4 mt-8 md:mt-0 pb-12 md:pb-0">
                 <motion.button
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
