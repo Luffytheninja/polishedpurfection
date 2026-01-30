@@ -1,27 +1,30 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 
 export default function Services() {
     return (
-        <div className="flex flex-col">
-            <GelManicures />
-            <GelXExtensions />
-            <CustomPressOns />
+        <div id="services" className="flex flex-col bg-background text-foreground scroll-smooth">
+            <div className="py-20 text-center">
+                <h2 className="text-4xl md:text-6xl font-serif text-gold/90 mb-4">Pick Your Poison</h2>
+            </div>
+            <ClassicGelX />
+            <SignatureSet />
+            <LuxuryCustom />
         </div>
     );
 }
 
-function GelManicures() {
+function ClassicGelX() {
     const [tilt, setTilt] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
-            const x = (e.clientX / window.innerWidth - 0.5) * 20;
-            const y = (e.clientY / window.innerHeight - 0.5) * 20;
+            const x = (e.clientX / window.innerWidth - 0.5) * 10; // Subtle tilt
+            const y = (e.clientY / window.innerHeight - 0.5) * 10;
             setTilt({ x, y });
         };
 
@@ -30,27 +33,25 @@ function GelManicures() {
     }, []);
 
     return (
-        <section className="h-screen sticky top-0 flex items-center justify-center overflow-hidden bg-cream">
-            <motion.div
-                animate={{
-                    background: `radial-gradient(circle at ${50 + tilt.x}% ${50 + tilt.y}%, var(--blush), var(--cream))`
-                }}
-                className="absolute inset-0 z-0"
-            />
+        <section className="min-h-screen flex items-center justify-center overflow-hidden border-b border-white/5 relative group">
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 z-0 pointer-events-none" />
 
             <div className="z-10 container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div className="text-left">
-                    <span className="text-gold tracking-[0.2em] font-sans font-medium uppercase text-sm mb-4 block">
-                        💎 Gel Manicures
+                <div className="text-left order-2 md:order-1">
+                    <span className="text-gold tracking-[0.2em] font-sans font-medium uppercase text-xs mb-4 block opacity-70">
+                        01 — The Essentials
                     </span>
-                    <h2 className="text-5xl md:text-7xl font-serif mb-6 leading-tight">
-                        Gloss that speaks before you do.
-                    </h2>
-                    <p className="text-xl text-muted mb-8 max-w-md">
-                        Clean cuticles. Mirror shine. No shortcuts.
+                    <h3 className="text-5xl md:text-7xl font-serif mb-6 leading-tight text-white">
+                        Classic Gel-X
+                    </h3>
+                    <p className="text-xl text-muted mb-4 font-serif italic">
+                        Clean. Strong. Addictive.
                     </p>
-                    <button className="bg-foreground text-background px-8 py-4 rounded-full font-serif text-lg">
-                        Book Your Glow
+                    <p className="text-md text-foreground/60 mb-8 max-w-md font-sans leading-relaxed">
+                        A timeless Gel-X set with flawless structure and a polished finish. Perfect for everyday wear with elevated quality.
+                    </p>
+                    <button className="text-gold border-b border-gold/30 pb-1 hover:border-gold transition-colors font-serif italic">
+                        From ₦15,000
                     </button>
                 </div>
 
@@ -60,15 +61,15 @@ function GelManicures() {
                         rotateY: tilt.x,
                         perspective: 1000
                     }}
-                    className="relative flex justify-center items-center"
+                    className="relative flex justify-center items-center order-1 md:order-2 group-hover:scale-105 transition-transform duration-700 ease-out"
                 >
-                    <div className="absolute w-64 h-64 bg-white/20 blur-3xl rounded-full" />
+                    <div className="absolute w-64 h-64 bg-white/5 blur-[100px] rounded-full" />
                     <Image
                         src="/assets/Gel bottle.png"
                         alt="Gel bottle"
                         width={300}
                         height={500}
-                        className="relative z-10 object-contain drop-shadow-2xl"
+                        className="relative z-10 object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] opacity-90 group-hover:opacity-100 transition-opacity duration-500"
                     />
                 </motion.div>
             </div>
@@ -76,7 +77,7 @@ function GelManicures() {
     );
 }
 
-function GelXExtensions() {
+function SignatureSet() {
     const [length, setLength] = useState(50);
 
     const getNailLength = () => {
@@ -88,31 +89,34 @@ function GelXExtensions() {
     };
 
     return (
-        <section className="h-screen sticky top-0 bg-white flex items-center justify-center overflow-hidden border-t border-cream/50">
+        <section className="min-h-screen bg-[#080808] flex items-center justify-center overflow-hidden border-b border-white/5 relative">
+            <div className="absolute top-0 right-0 p-4 bg-gold/10 text-gold text-xs tracking-widest uppercase rounded-bl-2xl backdrop-blur-md border-l border-b border-gold/20">
+                Most Booked
+            </div>
+
             <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div className="order-2 md:order-1 flex flex-col items-center">
+                <div className="flex flex-col items-center">
                     <div className="relative h-[400px] w-full flex items-end justify-center">
                         <motion.div
                             style={{
-                                height: `${100 + length * 2}px`,
-                                filter: `drop-shadow(0 ${length / 4}px ${length / 8}px rgba(0,0,0,0.1))`
+                                height: `${120 + length * 2.5}px`, // Adjusted scale
                             }}
-                            className="relative w-32 transition-all duration-300 ease-out"
+                            className="relative w-40 transition-all duration-300 ease-out grayscale-[0.3] hover:grayscale-0"
                         >
                             <Image
                                 src="/assets/Gel X extensions.png"
-                                alt="Gel-X extension"
+                                alt="Signature Set"
                                 fill
-                                className="object-contain object-bottom"
+                                className="object-contain object-bottom drop-shadow-[0_0_30px_rgba(255,255,255,0.05)]"
                             />
                         </motion.div>
 
-                        <div className="absolute bottom-0 text-gold font-serif text-2xl tracking-widest uppercase opacity-30 select-none">
+                        <div className="absolute bottom-10 text-gold/10 font-serif text-6xl tracking-widest uppercase select-none pointer-events-none">
                             {getNailLength()}
                         </div>
                     </div>
 
-                    <div className="w-full max-w-sm mt-12 space-y-4">
+                    <div className="w-full max-w-sm mt-12 space-y-6">
                         <input
                             type="range"
                             min="10"
@@ -122,27 +126,26 @@ function GelXExtensions() {
                                 setLength(parseInt(e.target.value));
                                 if (window.navigator?.vibrate) window.navigator.vibrate(5);
                             }}
-                            className="w-full accent-gold h-2 bg-cream rounded-lg appearance-none cursor-pointer"
+                            className="w-full accent-gold h-1 bg-white/10 rounded-lg appearance-none cursor-pointer hover:bg-white/20 transition-colors"
                         />
-                        <div className="flex justify-between text-xs font-sans tracking-widest text-muted uppercase">
-                            <span>Short</span>
-                            <span>Extra</span>
-                        </div>
                     </div>
                 </div>
 
-                <div className="order-1 md:order-2 text-left">
-                    <span className="text-gold tracking-[0.2em] font-sans font-medium uppercase text-sm mb-4 block">
-                        💎 Gel-X Extensions
+                <div className="text-left">
+                    <span className="text-gold tracking-[0.2em] font-sans font-medium uppercase text-xs mb-4 block opacity-70">
+                        02 — The Featured
                     </span>
-                    <h2 className="text-5xl md:text-7xl font-serif mb-6 leading-tight">
-                        Length, but make it elegant.
-                    </h2>
-                    <p className="text-xl text-muted mb-8 max-w-md">
-                        Lightweight. Balanced. Built to last.
+                    <h3 className="text-5xl md:text-7xl font-serif mb-6 leading-tight text-white">
+                        Signature Set
+                    </h3>
+                    <p className="text-xl text-muted mb-4 font-serif italic">
+                        The one they ask about.
                     </p>
-                    <button className="bg-foreground text-background px-8 py-4 rounded-full font-serif text-lg">
-                        Extend Your Style
+                    <p className="text-md text-foreground/60 mb-8 max-w-md font-sans leading-relaxed">
+                        Custom details, refined finishes, and main-character energy. Designed to stand out without trying too hard.
+                    </p>
+                    <button className="text-gold border-b border-gold/30 pb-1 hover:border-gold transition-colors font-serif italic">
+                        From ₦25,000
                     </button>
                 </div>
             </div>
@@ -158,7 +161,7 @@ const DESIGNS = [
     { id: 5, src: "/assets/Press on 5.png", title: "Statement" },
 ];
 
-function CustomPressOns() {
+function LuxuryCustom() {
     const [index, setIndex] = useState(0);
 
     const next = () => {
@@ -172,61 +175,64 @@ function CustomPressOns() {
     };
 
     return (
-        <section className="h-screen sticky top-0 bg-blush flex items-center justify-center overflow-hidden">
+        <section className="min-h-screen flex items-center justify-center overflow-hidden relative">
+            {/* Background Ambience */}
+            <div className="absolute right-[-10%] bottom-[-10%] w-[40%] h-[40%] bg-white/5 rounded-full blur-[150px] pointer-events-none" />
+
             <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div className="text-left">
-                    <span className="text-gold tracking-[0.2em] font-sans font-medium uppercase text-sm mb-4 block">
-                        💎 Custom Press-Ons
+                <div className="text-left order-2 md:order-1">
+                    <span className="text-gold tracking-[0.2em] font-sans font-medium uppercase text-xs mb-4 block opacity-70">
+                        03 — The Bespoke
                     </span>
-                    <h2 className="text-5xl md:text-7xl font-serif mb-6 leading-tight">
-                        Your idea. My execution.
-                    </h2>
-                    <p className="text-xl text-muted mb-8 max-w-md">
-                        Designed once. Worn anytime.
+                    <h3 className="text-5xl md:text-7xl font-serif mb-6 leading-tight text-white">
+                        Luxury Custom
+                    </h3>
+                    <p className="text-xl text-muted mb-4 font-serif italic">
+                        Designed, not rushed.
                     </p>
-                    <button className="bg-foreground text-background px-8 py-4 rounded-full font-serif text-lg">
-                        Order Custom Set
+                    <p className="text-md text-foreground/60 mb-8 max-w-md font-sans leading-relaxed">
+                        A fully customized set built from scratch. For clients who want something unique and intentional.
+                    </p>
+                    <button className="text-gold border-b border-gold/30 pb-1 hover:border-gold transition-colors font-serif italic">
+                        From ₦35,000
                     </button>
                 </div>
 
-                <div className="relative flex items-center justify-center">
-                    <div className="relative w-full aspect-square max-w-md flex items-center justify-center">
+                <div className="relative flex items-center justify-center order-1 md:order-2">
+                    <div className="relative w-full aspect-[3/4] max-w-md flex items-center justify-center">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={index}
-                                initial={{ x: 100, opacity: 0, rotate: 10 }}
-                                animate={{ x: 0, opacity: 1, rotate: 0 }}
-                                exit={{ x: -100, opacity: 0, rotate: -10 }}
-                                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                                className="absolute"
+                                initial={{ x: 50, opacity: 0, scale: 0.9 }}
+                                animate={{ x: 0, opacity: 1, scale: 1 }}
+                                exit={{ x: -50, opacity: 0, scale: 0.9 }}
+                                transition={{ duration: 0.5, ease: "easeInOut" }}
+                                className="absolute inset-0 flex items-center justify-center"
                             >
-                                <div className="relative">
+                                <div className="relative w-full h-full p-8 glossy rounded-2xl flex items-center justify-center group overflow-hidden">
+                                    <div className="absolute inset-0 bg-black/40 z-0" />
                                     <Image
                                         src={DESIGNS[index].src}
                                         alt={DESIGNS[index].title}
-                                        width={280}
-                                        height={400}
-                                        className="object-contain drop-shadow-2xl"
+                                        fill
+                                        className="object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)] z-10 group-hover:scale-105 transition-transform duration-700"
                                     />
-                                    <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-2xl font-serif text-foreground">
+                                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-xl font-serif text-white tracking-widest uppercase z-20">
                                         {DESIGNS[index].title}
                                     </div>
                                 </div>
                             </motion.div>
                         </AnimatePresence>
 
-                        <button
-                            onClick={prev}
-                            className="absolute left-0 z-10 p-4 rounded-full bg-white/50 backdrop-blur-md border border-white/20 active:scale-90 transition-transform"
-                        >
-                            <ChevronLeft size={24} />
-                        </button>
-                        <button
-                            onClick={next}
-                            className="absolute right-0 z-10 p-4 rounded-full bg-white/50 backdrop-blur-md border border-white/20 active:scale-90 transition-transform"
-                        >
-                            <ChevronRight size={24} />
-                        </button>
+                        {/* Minimal Navigation Controls */}
+                        <div className="absolute -bottom-16 flex gap-8">
+                            <button onClick={prev} className="p-4 text-white/50 hover:text-gold transition-colors">
+                                <ChevronLeft size={24} />
+                            </button>
+                            <button onClick={next} className="p-4 text-white/50 hover:text-gold transition-colors">
+                                <ChevronRight size={24} />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
