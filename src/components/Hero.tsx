@@ -58,13 +58,14 @@ export default function Hero() {
                     initial={{ scale: 0.95, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ delay: 0.2, duration: 1 }}
-                    className="absolute inset-0 flex flex-wrap items-center justify-center gap-6 p-8"
+                    className="absolute inset-0 flex flex-wrap items-center justify-center gap-4 md:gap-6 p-4 md:p-8"
                 >
                     {NAILS.map((nail, index) => (
                         <DraggableNail key={nail.id} src={nail.src} index={index} />
                     ))}
                 </motion.div>
             </div>
+
 
             <div className="relative md:absolute md:bottom-12 z-20 flex flex-col items-center gap-4 mt-8 md:mt-0 pb-12 md:pb-0">
                 <motion.button
@@ -109,16 +110,16 @@ function DraggableNail({ src, index }: { src: string; index: number }) {
                 y: 0,
                 transition: { delay: 0.4 + (index * 0.1), duration: 0.8, ease: "easeOut" }
             }}
-            className="cursor-grab active:cursor-grabbing relative grayscale-[0.2] hover:grayscale-0 transition-all duration-500"
+            className="cursor-grab active:cursor-grabbing relative grayscale-[0.2] hover:grayscale-0 transition-all duration-500 w-[70px] h-[120px] md:w-[90px] md:h-[160px]"
         >
             <Image
                 src={src}
                 alt="Nail kit item"
-                width={90}
-                height={160}
+                fill
                 className="object-contain drop-shadow-2xl"
                 draggable={false}
             />
         </motion.div>
+
     );
 }

@@ -1,16 +1,29 @@
+import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
+import Portfolio from "@/components/Portfolio";
+import About from "@/components/About";
 import Pricing from "@/components/Pricing";
+import Trust from "@/components/Trust";
 import Booking from "@/components/Booking";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
+      <Navbar />
       <Hero />
       <Services />
+      <Portfolio />
+      <About />
       <Pricing />
-      <Booking />
+      <Trust />
+      <section id="booking">
+        <Booking />
+      </section>
+      <Footer />
     </main>
   );
 }
+
 

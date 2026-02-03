@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Pricing() {
     return (
-        <section className="py-32 px-6 bg-background relative overflow-hidden flex flex-col items-center">
+        <section id="pricing" className="py-32 px-6 bg-background relative overflow-hidden flex flex-col items-center border-t border-white/5">
             {/* Background Ambience */}
             <div className="absolute left-[-10%] top-[20%] w-[30%] h-[30%] bg-white/5 rounded-full blur-[100px] pointer-events-none opacity-20" />
 
@@ -15,35 +15,57 @@ export default function Pricing() {
                 transition={{ duration: 0.8 }}
                 className="text-center mb-24 max-w-2xl mx-auto"
             >
-                <h2 className="text-4xl md:text-5xl font-serif text-white mb-6">Services & Investment</h2>
-                <p className="text-muted font-serif italic text-lg">
-                    Pricing reflects time, precision, and quality. Luxury is calm and confident.
+                <span className="text-gold tracking-[0.3em] font-sans font-medium uppercase text-xs mb-4 block opacity-70">
+                    The Investment
+                </span>
+                <h2 className="text-5xl md:text-6xl font-serif text-white mb-6">Service Menu</h2>
+                <p className="text-muted font-serif italic text-lg leading-relaxed">
+                    Pricing reflects the time, precision, and high-quality materials required to ensure your set lasts and maintains its health.
                 </p>
             </motion.div>
 
-            <div className="w-full max-w-4xl mx-auto space-y-24">
+            <div className="w-full max-w-4xl mx-auto space-y-16">
                 <PricingItem
                     title="Classic Gel-X"
                     price="₦15,000"
-                    description="Clean structure. Timeless finish."
+                    description="Flawless structure. Single color finish. Subtle elegance."
                 />
                 <PricingItem
                     title="Signature Set"
                     price="₦25,000"
-                    description="Custom details. Elevated look."
+                    description="Custom length with basic art (2-4 accent nails) or specialty polish."
                 />
                 <PricingItem
                     title="Luxury Custom"
                     price="₦35,000"
-                    description="Designed from scratch. No repeats."
+                    description="Full design (10 nails), 3D textures, hand-painted art, or charms."
                 />
             </div>
 
-            <div className="mt-24 text-center">
-                <p className="text-muted text-sm tracking-widest uppercase opacity-60">
-                    Custom designs, charms, and extras are priced separately.
-                </p>
-            </div>
+            <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="mt-24 grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-4xl border-t border-white/10 pt-16"
+            >
+                <div>
+                    <h4 className="text-white font-serif text-xl mb-4">Add-ons</h4>
+                    <ul className="space-y-3 text-sm text-muted font-sans font-light">
+                        <li className="flex justify-between"><span>Soak Off (External)</span> <span className="text-gold">₦3,000</span></li>
+                        <li className="flex justify-between"><span>Soak Off (My Work)</span> <span className="text-gold">FREE</span></li>
+                        <li className="flex justify-between"><span>Nail Repair (Per Finger)</span> <span className="text-gold">₦2,500</span></li>
+                        <li className="flex justify-between"><span>Premium Charms</span> <span className="text-gold">From ₦1,500</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 className="text-white font-serif text-xl mb-4">Design Tiers</h4>
+                    <ul className="space-y-3 text-sm text-muted font-sans font-light">
+                        <li className="flex justify-between"><span>Simple (Lines, Dots)</span> <span className="text-gold">+₦5,000</span></li>
+                        <li className="flex justify-between"><span>Moderate (Chrome, Ombre)</span> <span className="text-gold">+₦8,000</span></li>
+                        <li className="flex justify-between"><span>Advanced (3D, Character)</span> <span className="text-gold">Quote Required</span></li>
+                    </ul>
+                </div>
+            </motion.div>
         </section>
     );
 }
@@ -54,15 +76,16 @@ function PricingItem({ title, price, description }: { title: string, price: stri
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col md:flex-row justify-between items-baseline border-b border-white/10 pb-8 hover:border-gold/30 transition-colors group"
+            className="flex flex-col md:flex-row justify-between items-baseline border-b border-white/5 pb-12 hover:border-gold/30 transition-all duration-500 group"
         >
-            <div className="mb-4 md:mb-0">
-                <h3 className="text-3xl font-serif text-white group-hover:text-gold transition-colors duration-500">{title}</h3>
-                <p className="text-muted mt-2 font-sans text-sm tracking-wide">{description}</p>
+            <div className="mb-4 md:mb-0 max-w-md">
+                <h3 className="text-3xl font-serif text-white group-hover:text-gold transition-colors duration-500 mb-2">{title}</h3>
+                <p className="text-muted font-sans text-sm tracking-wide leading-relaxed">{description}</p>
             </div>
-            <div className="text-2xl font-serif text-gold/80 group-hover:text-gold transition-colors duration-500">
+            <div className="text-2xl font-serif text-gold/80 group-hover:text-gold group-hover:scale-110 transition-all duration-500">
                 From {price}
             </div>
         </motion.div>
     )
 }
+
