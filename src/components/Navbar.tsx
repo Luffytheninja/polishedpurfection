@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 
 const LINKS = [
     { name: "Services", href: "#services" },
-    { name: "Portfolio", href: "#portfolio" },
     { name: "About", href: "#about" },
     { name: "Book Now", href: "#booking", primary: true },
 ];
@@ -50,8 +49,8 @@ export default function Navbar() {
                                 href={link.href}
                                 onClick={(e) => scrollToSection(e, link.href)}
                                 className={`text-xs uppercase tracking-[0.2em] transition-all hover:text-gold ${link.primary
-                                        ? "bg-white text-black px-6 py-2.5 rounded-full font-medium hover:scale-105 active:scale-95"
-                                        : "text-muted hover:text-foreground"
+                                    ? "bg-white text-black px-6 py-2.5 rounded-full font-medium hover:scale-105 active:scale-95"
+                                    : "text-muted hover:text-foreground"
                                     }`}
                             >
                                 {link.name}
