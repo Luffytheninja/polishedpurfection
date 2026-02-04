@@ -48,7 +48,7 @@ function ClassicGelX() {
                         A timeless Gel-X set with flawless structure and a polished finish. Perfect for everyday wear with elevated quality.
                     </p>
                     <button className="text-gold border-b border-gold/30 pb-1 hover:border-gold transition-colors font-serif italic">
-                        From ₦15,000
+                        From ₦7,000
                     </button>
                 </div>
 
@@ -75,28 +75,21 @@ function ClassicGelX() {
 }
 
 function SignatureSet() {
-    const [length, setLength] = useState(50);
+    const [length, setLength] = useState("Medium");
+    const [shape, setShape] = useState("Square");
 
-    const getNailLength = () => {
-        if (length < 20) return "Short";
-        if (length < 40) return "Medium";
-        if (length < 60) return "Long";
-        if (length < 80) return "Stiletto";
-        return "Extra";
-    };
+    const lengths = ["Extra Short", "Short", "Medium", "Long", "Extra Long"];
+    const shapes = ["Square", "Stiletto", "Almond", "Duck", "Coffin"];
 
     return (
         <section className="min-h-screen bg-[#080808] flex items-center justify-center overflow-hidden border-b border-white/5 relative">
-            <div className="absolute top-0 right-0 p-4 bg-gold/10 text-gold text-xs tracking-widest uppercase rounded-bl-2xl backdrop-blur-md border-l border-b border-gold/20">
-                Most Booked
-            </div>
 
             <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div className="flex flex-col items-center">
                     <div className="relative h-[400px] w-full flex items-end justify-center">
                         <motion.div
                             style={{
-                                height: `${120 + length * 2.5}px`, // Adjusted scale
+                                height: `100%`, // Updated to use container height
                             }}
                             className="relative w-40 transition-all duration-300 ease-out grayscale-[0.3] hover:grayscale-0"
                         >
@@ -108,23 +101,41 @@ function SignatureSet() {
                             />
                         </motion.div>
 
-                        <div className="absolute bottom-10 text-gold/10 font-serif text-6xl tracking-widest uppercase select-none pointer-events-none">
-                            {getNailLength()}
+                        <div className="absolute bottom-10 text-gold/10 font-serif text-4xl tracking-widest uppercase select-none pointer-events-none text-center">
+                            {length} <br /> {shape}
                         </div>
                     </div>
 
-                    <div className="w-full max-w-sm mt-12 space-y-6">
-                        <input
-                            type="range"
-                            min="10"
-                            max="100"
-                            value={length}
-                            onChange={(e) => {
-                                setLength(parseInt(e.target.value));
-                                if (window.navigator?.vibrate) window.navigator.vibrate(5);
-                            }}
-                            className="w-full accent-gold h-1 bg-white/10 rounded-lg appearance-none cursor-pointer hover:bg-white/20 transition-colors"
-                        />
+                    <div className="w-full max-w-sm mt-12 space-y-8">
+                        <div>
+                            <span className="text-white/40 text-[10px] uppercase tracking-[0.2em] mb-4 block">Length</span>
+                            <div className="flex flex-wrap gap-2">
+                                {lengths.map((l) => (
+                                    <button
+                                        key={l}
+                                        onClick={() => setLength(l)}
+                                        className={`px-3 py-1 text-xs border transition-all duration-300 ${length === l ? "border-gold text-gold" : "border-white/10 text-white/40 hover:border-white/30"}`}
+                                    >
+                                        {l}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div>
+                            <span className="text-white/40 text-[10px] uppercase tracking-[0.2em] mb-4 block">Shape</span>
+                            <div className="flex flex-wrap gap-2">
+                                {shapes.map((s) => (
+                                    <button
+                                        key={s}
+                                        onClick={() => setShape(s)}
+                                        className={`px-3 py-1 text-xs border transition-all duration-300 ${shape === s ? "border-gold text-gold" : "border-white/10 text-white/40 hover:border-white/30"}`}
+                                    >
+                                        {s}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -142,7 +153,7 @@ function SignatureSet() {
                         Custom details, refined finishes, and main-character energy. Designed to stand out without trying too hard.
                     </p>
                     <button className="text-gold border-b border-gold/30 pb-1 hover:border-gold transition-colors font-serif italic">
-                        From ₦25,000
+                        From ₦10,000
                     </button>
                 </div>
             </div>
@@ -151,11 +162,10 @@ function SignatureSet() {
 }
 
 const DESIGNS = [
-    { id: 1, src: "/assets/Press on 1.png", title: "French" },
-    { id: 2, src: "/assets/Press on 2.png", title: "Chrome" },
-    { id: 3, src: "/assets/Press on 3.png", title: "3D" },
-    { id: 4, src: "/assets/Press on 4.png", title: "Minimal" },
-    { id: 5, src: "/assets/Press on 5.png", title: "Statement" },
+    { id: 1, src: "/assets/Frenchies.jpeg", title: "French" },
+    { id: 2, src: "/assets/Chrome Nails.png", title: "Chrome" },
+    { id: 3, src: "/assets/3D.jpeg", title: "3D" },
+    { id: 4, src: "/assets/Bling.jpeg", title: "Bling" },
 ];
 
 function LuxuryCustom() {
@@ -191,7 +201,7 @@ function LuxuryCustom() {
                         A fully customized set built from scratch. For clients who want something unique and intentional.
                     </p>
                     <button className="text-gold border-b border-gold/30 pb-1 hover:border-gold transition-colors font-serif italic">
-                        From ₦35,000
+                        From ₦15,000
                     </button>
                 </div>
 

@@ -6,6 +6,7 @@ import About from "@/components/About";
 import Pricing from "@/components/Pricing";
 import Trust from "@/components/Trust";
 import Booking from "@/components/Booking";
+import InstagramFeed from "@/components/InstagramFeed";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
       <section id="booking">
         <Booking />
       </section>
+      <InstagramFeed />
       <Footer />
     </main>
   );

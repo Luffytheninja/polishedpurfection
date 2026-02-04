@@ -27,17 +27,17 @@ export default function Pricing() {
             <div className="w-full max-w-4xl mx-auto space-y-16">
                 <PricingItem
                     title="Classic Gel-X"
-                    price="₦15,000"
+                    price="₦7,000"
                     description="Flawless structure. Single color finish. Subtle elegance."
                 />
                 <PricingItem
                     title="Signature Set"
-                    price="₦25,000"
+                    price="₦10,000"
                     description="Custom length with basic art (2-4 accent nails) or specialty polish."
                 />
                 <PricingItem
                     title="Luxury Custom"
-                    price="₦35,000"
+                    price="₦15,000"
                     description="Full design (10 nails), 3D textures, hand-painted art, or charms."
                 />
             </div>
@@ -52,17 +52,9 @@ export default function Pricing() {
                     <h4 className="text-white font-serif text-xl mb-4">Add-ons</h4>
                     <ul className="space-y-3 text-sm text-muted font-sans font-light">
                         <li className="flex justify-between"><span>Soak Off (External)</span> <span className="text-gold">₦3,000</span></li>
-                        <li className="flex justify-between"><span>Soak Off (My Work)</span> <span className="text-gold">FREE</span></li>
+                        <li className="flex justify-between"><span>Soak Off (My Work)</span> <span className="text-gold">₦1,500</span></li>
                         <li className="flex justify-between"><span>Nail Repair (Per Finger)</span> <span className="text-gold">₦2,500</span></li>
-                        <li className="flex justify-between"><span>Premium Charms</span> <span className="text-gold">From ₦1,500</span></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 className="text-white font-serif text-xl mb-4">Design Tiers</h4>
-                    <ul className="space-y-3 text-sm text-muted font-sans font-light">
-                        <li className="flex justify-between"><span>Simple (Lines, Dots)</span> <span className="text-gold">+₦5,000</span></li>
-                        <li className="flex justify-between"><span>Moderate (Chrome, Ombre)</span> <span className="text-gold">+₦8,000</span></li>
-                        <li className="flex justify-between"><span>Advanced (3D, Character)</span> <span className="text-gold">Quote Required</span></li>
+                        <li className="flex justify-between"><span>Charms (Per Finger)</span> <span className="text-gold">₦700</span></li>
                     </ul>
                 </div>
             </motion.div>
