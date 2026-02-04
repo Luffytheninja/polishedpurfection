@@ -40,7 +40,7 @@ export default function About() {
                         </h2>
                         <div className="space-y-6 text-lg text-muted font-sans font-light leading-relaxed">
                             <p>
-                                Polished Purfection was born out of a desire for intentionality in beauty. On campus, life is fast—but your aesthetic should be calm, considered, and crafted to last.
+                                Polished Purfection was born out of a desire for intentionality in beauty. On OAU campus, life is fast—but your aesthetic should be calm, considered, and crafted to last.
                             </p>
                             <p>
                                 I specialize in Gel-X extensions and custom nail art, focusing on long-wear integrity and flawless structure. Every set is an intimate collaboration between your vision and my technique.

@@ -19,8 +19,8 @@ export default function Footer() {
                     <div>
                         <h5 className="text-white font-serif text-xl mb-6">Location</h5>
                         <ul className="space-y-4 text-muted font-sans font-light">
-                            <li>Lagos, NG</li>
-                            <li>University Campus</li>
+                            <li>OAU Campus</li>
+                            <li>Ile-Ife, NG</li>
                             <li>By Appointment Only</li>
                         </ul>
                     </div>

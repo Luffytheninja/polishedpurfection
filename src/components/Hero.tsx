@@ -48,7 +48,7 @@ export default function Hero() {
                     className="text-sm md:text-base text-muted max-w-md mx-auto font-sans tracking-widest uppercase mb-12"
                 >
                     Clean Gel-X sets crafted with intention.<br />
-                    Soft luxury for campus girls who know.
+                    Soft luxury for OAU girls who know.
                 </motion.p>
             </div>
 

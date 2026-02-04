@@ -78,7 +78,7 @@ export default function Booking() {
                 </motion.div>
 
                 <p className="mt-12 text-muted/30 text-xs tracking-[0.2em] uppercase">
-                    Campus-based • Limited Slots
+                    OAU Campus • Limited Slots
                 </p>
             </div>
         </section>
